@@ -1,0 +1,1215 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Results</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 20px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            }
+            th, td {
+                border: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .status-pass {
+                color: green;
+            }
+            .status-fail {
+                color: red;
+            }
+            pre {
+                background-color: #282c34 !important;
+                color: #ffffff !important;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 1.1em;  /* Slightly larger font size */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Exit Code</th>
+                <th>Language</th>
+                <th>Modified Test File</th>
+                <th>Details</th>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_different_lengths():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [3, 4], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 8
+E       def test_different_lengths():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.34s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_different_lengths():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [3, 4], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python"></code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_max_weight_zero():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [3, 4, 5], 0)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 8
+E       def test_max_weight_zero():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_max_weight_zero():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [3, 4, 5], 0)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python"></code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_max_profit_calculation():</span>
+<span class="diff-added">+     assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-added">+     assert calc_profit([10, 9, 8], [3, 4, 5], 25) == 27</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 8
+E       def test_max_profit_calculation():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_max_profit_calculation():
+    assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6
+    assert calc_profit([10, 9, 8], [3, 4, 5], 25) == 27
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python"></code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_simple_profit_calculation():</span>
+<span class="diff-added">+     assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-added">+     assert calc_profit([10, 9, 8], [3, 4, 5], 25) == 27</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_simple_profit_calculation():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.36s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_simple_profit_calculation():
+    assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6
+    assert calc_profit([10, 9, 8], [3, 4, 5], 25) == 27
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_negative_profit_values():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([-1, 2, 3], [3, 4, 5], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_negative_profit_values():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_negative_profit_values():
+    with pytest.raises(ValueError):
+        calc_profit([-1, 2, 3], [3, 4, 5], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_max_weight_zero():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [3, 4, 5], 0)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_max_weight_zero():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.34s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_max_weight_zero():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [3, 4, 5], 0)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_all_weights_greater_than_max():</span>
+<span class="diff-added">+     assert calc_profit([1, 2, 3], [20, 30, 40], 15) == 6</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_all_weights_greater_than_max():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_all_weights_greater_than_max():
+    assert calc_profit([1, 2, 3], [20, 30, 40], 15) == 6
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_max_weight_negative():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [3, 4, 5], -1)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_max_weight_negative():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.32s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_max_weight_negative():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [3, 4, 5], -1)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">import pytest</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_negative_weight_values():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [-3, 4, 5], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_greedy_knapsack.py ___________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack\test_greedy_knapsack.py", line 7
+E       def test_negative_weight_values():
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 4
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                 Stmts   Miss  Cover
+----------------------------------------
+greedy_knapsack.py      28     28     0%
+----------------------------------------
+TOTAL                   28     28     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_greedy_knapsack.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.34s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_negative_weight_values():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [-3, 4, 5], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">import pytest</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>1</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_all_weights_greater_than_max_weight():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([5, 8, 7, 1, 12, 3, 4], [20, 30, 25, 40, 35, 50, 45], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 2 items
+
+test_greedy_knapsack.py .F                                               [100%]
+
+================================== FAILURES ===================================
+__________________ test_all_weights_greater_than_max_weight ___________________
+
+    def test_all_weights_greater_than_max_weight():
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_greedy_knapsack.py:9: Failed
+---------------------------- Captured stdout call -----------------------------
+5.142857142857142
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28      7    75%
+test_greedy_knapsack.py       7      0   100%
+---------------------------------------------
+TOTAL                        35      7    80%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+FAILED test_greedy_knapsack.py::test_all_weights_greater_than_max_weight - Fa...
+========================= 1 failed, 1 passed in 0.09s =========================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_all_weights_greater_than_max_weight():
+    with pytest.raises(ValueError):
+        calc_profit([5, 8, 7, 1, 12, 3, 4], [20, 30, 25, 40, 35, 50, 45], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_all_negative_profits():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 2 items
+
+test_greedy_knapsack.py ..                                               [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28     23    18%
+test_greedy_knapsack.py       7      0   100%
+---------------------------------------------
+TOTAL                        35     23    34%
+Coverage XML written to file coverage.xml
+
+
+============================== 2 passed in 0.08s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_all_negative_profits():
+    with pytest.raises(ValueError):
+        calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_specific_input_calculation():</span>
+<span class="diff-added">+     assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  def test_all_negative_profits():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 3 items
+
+test_greedy_knapsack.py ...                                              [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28      5    82%
+test_greedy_knapsack.py       9      0   100%
+---------------------------------------------
+TOTAL                        37      5    86%
+Coverage XML written to file coverage.xml
+
+
+============================== 3 passed in 0.10s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_specific_input_calculation():
+    assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_max_weight_less_than_or_equal_to_zero():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([1, 2, 3], [3, 4, 5], 0)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_specific_input_calculation():</span>
+<span class="diff-unchanged">      assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_all_negative_profits():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 4 items
+
+test_greedy_knapsack.py ....                                             [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28      4    86%
+test_greedy_knapsack.py      12      0   100%
+---------------------------------------------
+TOTAL                        40      4    90%
+Coverage XML written to file coverage.xml
+
+
+============================== 4 passed in 0.09s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_max_weight_less_than_or_equal_to_zero():
+    with pytest.raises(ValueError):
+        calc_profit([1, 2, 3], [3, 4, 5], 0)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_negative_profit():</span>
+<span class="diff-added">+     with pytest.raises(ValueError):</span>
+<span class="diff-added">+         calc_profit([-1, 2, 3], [3, 4, 5], 15)</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_max_weight_less_than_or_equal_to_zero():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([1, 2, 3], [3, 4, 5], 0)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_specific_input_calculation():</span>
+<span class="diff-unchanged">      assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_all_negative_profits():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 5 items
+
+test_greedy_knapsack.py .....                                            [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28      4    86%
+test_greedy_knapsack.py      15      0   100%
+---------------------------------------------
+TOTAL                        43      4    91%
+Coverage XML written to file coverage.xml
+
+
+============================== 5 passed in 0.10s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_negative_profit():
+    with pytest.raises(ValueError):
+        calc_profit([-1, 2, 3], [3, 4, 5], 15)
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from greedy_knapsack import calc_profit</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_suite():</span>
+<span class="diff-unchanged">      # empty method</span>
+<span class="diff-unchanged">      pass</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_large_data_set():</span>
+<span class="diff-added">+     assert calc_profit([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 55) == 55</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_negative_profit():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([-1, 2, 3], [3, 4, 5], 15)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_max_weight_less_than_or_equal_to_zero():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([1, 2, 3], [3, 4, 5], 0)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_specific_input_calculation():</span>
+<span class="diff-unchanged">      assert calc_profit([1, 2, 3], [3, 4, 5], 15) == 6</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_all_negative_profits():</span>
+<span class="diff-unchanged">      with pytest.raises(ValueError):</span>
+<span class="diff-unchanged">          calc_profit([-5, -8, -7, -1, -12, -3, -4], [2, 7, 1, 6, 4, 2, 5], 15)</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\greedy_knapsack
+plugins: anyio-4.6.2, cov-6.0.0
+collected 6 items
+
+test_greedy_knapsack.py ......                                           [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+greedy_knapsack.py           28      4    86%
+test_greedy_knapsack.py      17      0   100%
+---------------------------------------------
+TOTAL                        45      4    91%
+Coverage XML written to file coverage.xml
+
+
+============================== 6 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_large_data_set():
+    assert calc_profit([10, 9, 8, 7, 6, 5, 4, 3, 2, 1], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 55) == 55
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"import pytest"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    </body>
+    </html>
+    

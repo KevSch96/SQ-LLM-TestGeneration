@@ -1,0 +1,1673 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Results</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 20px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            }
+            th, td {
+                border: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .status-pass {
+                color: green;
+            }
+            .status-fail {
+                color: red;
+            }
+            pre {
+                background-color: #282c34 !important;
+                color: #ffffff !important;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 1.1em;  /* Slightly larger font size */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Exit Code</th>
+                <th>Language</th>
+                <th>Modified Test File</th>
+                <th>Details</th>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_add_grade(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert student.grades["Math"] == 90.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_add_grade(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.31s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_add_grade(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert student.grades["Math"] == 90.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_gpa_no_grades(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         assert student.get_gpa() == 0.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_gpa_no_grades(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_gpa_no_grades(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    assert student.get_gpa() == 0.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_change_major(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.change_major("Mathematics")</span>
+<span class="diff-added">+         assert student.major == "Mathematics"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_change_major(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.30s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_change_major(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.change_major("Mathematics")
+    assert student.major == "Mathematics"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_string_representation(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 90.00"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_string_representation(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.33s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_string_representation(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 90.00"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_init_student(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         assert student.student_id == 1</span>
+<span class="diff-added">+         assert student.name == "Alice"</span>
+<span class="diff-added">+         assert student.age == 20</span>
+<span class="diff-added">+         assert student.major == "Computer Science"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_init_student(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.33s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_init_student(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    assert student.student_id == 1
+    assert student.name == "Alice"
+    assert student.age == 20
+    assert student.major == "Computer Science"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_add_grade(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert student.grades["Math"] == 90.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 8
+E       def test_add_grade(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 5
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.37s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_add_grade(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert student.grades["Math"] == 90.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_add_grade(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert student.grades["Math"] == 90.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_add_grade(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_add_grade(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert student.grades["Math"] == 90.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_get_gpa_with_grades(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         student.add_grade("Science", 85.0)</span>
+<span class="diff-added">+         assert student.get_gpa() == 87.5</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_get_gpa_with_grades(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.37s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_get_gpa_with_grades(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    student.add_grade("Science", 85.0)
+    assert student.get_gpa() == 87.5
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_change_major(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.change_major("Biology")</span>
+<span class="diff-added">+         assert student.major == "Biology"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_change_major(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.37s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_change_major(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.change_major("Biology")
+    assert student.major == "Biology"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_string_representation(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         student.add_grade("Science", 85.0)</span>
+<span class="diff-added">+         assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 87.50"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_string_representation(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.35s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_string_representation(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    student.add_grade("Science", 85.0)
+    assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 87.50"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_change_major(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.change_major("Biology")</span>
+<span class="diff-added">+         assert student.major == "Biology"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_change_major(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.33s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_change_major(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.change_major("Biology")
+    assert student.major == "Biology"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_add_grade(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert student.grades["Math"] == 90.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          return</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_add_grade(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.33s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_add_grade(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert student.grades["Math"] == 90.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_change_major(self):</span>
+<span class="diff-added">+         student = Student(1, "Bob", 22, "Physics")</span>
+<span class="diff-added">+         student.change_major("Biology")</span>
+<span class="diff-added">+         assert student.major == "Biology"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          return</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_change_major(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.42s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_change_major(self):
+    student = Student(1, "Bob", 22, "Physics")
+    student.change_major("Biology")
+    assert student.major == "Biology"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_get_gpa_no_grades(self):</span>
+<span class="diff-added">+         student = Student(1, "Charlie", 21, "Math")</span>
+<span class="diff-added">+         assert student.get_gpa() == 0.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          return</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_get_gpa_no_grades(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.39s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_get_gpa_no_grades(self):
+    student = Student(1, "Charlie", 21, "Math")
+    assert student.get_gpa() == 0.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>2</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_suite(self):</span>
+<span class="diff-unchanged">          # empty method</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_string_representation(self):</span>
+<span class="diff-added">+         student = Student(1, "David", 23, "Chemistry")</span>
+<span class="diff-added">+         student.add_grade("Biology", 85.0)</span>
+<span class="diff-added">+         assert str(student) == "Student David (ID: 1), Age: 23, Major: Chemistry, GPA: 85.00"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          return</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python">C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\control.py:892: CoverageWarning: No data was collected. (no-data-collected)
+  self._warn("No data was collected.", slug="no-data-collected")
+C:\Users\kevin\miniconda3\envs\sq_qodo\lib\site-packages\coverage\report_core.py:110: CoverageWarning: Couldn't parse Python file 'C:\Users\kevin\Desktop\qodo-cover\student\test_student.py' (couldnt-parse)
+  coverage._warn(msg, slug="couldnt-parse")
+</code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_student.py _______________________
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\pathlib.py:567: in import_path
+    importlib.import_module(module_name)
+..\..\..\miniconda3\envs\sq_qodo\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:177: in exec_module
+    source_stat, co = _rewrite_test(fn, self.config)
+..\..\..\miniconda3\envs\sq_qodo\lib\site-packages\_pytest\assertion\rewrite.py:359: in _rewrite_test
+    tree = ast.parse(source, filename=strfn)
+..\..\..\miniconda3\envs\sq_qodo\lib\ast.py:50: in parse
+    return compile(source, filename, mode, flags,
+E     File "C:\Users\kevin\Desktop\qodo-cover\student\test_student.py", line 9
+E       def test_string_representation(self):
+E       ^^^
+E   IndentationError: expected an indented block after function definition on line 6
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name         Stmts   Miss  Cover
+--------------------------------
+student.py      17     17     0%
+--------------------------------
+TOTAL           17     17     0%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+ERROR test_student.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.32s ===============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_string_representation(self):
+    student = Student(1, "David", 23, "Chemistry")
+    student.add_grade("Biology", 85.0)
+    assert str(student) == "Student David (ID: 1), Age: 23, Major: Chemistry, GPA: 85.00"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_initialization(self):</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-unchanged">          Empty test case, just for setup.</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_add_grade(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert student.grades["Math"] == 90.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 2 items
+
+test_student.py ..                                                       [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name              Stmts   Miss  Cover
+-------------------------------------
+student.py           17      5    71%
+test_student.py       9      0   100%
+-------------------------------------
+TOTAL                26      5    81%
+Coverage XML written to file coverage.xml
+
+
+============================== 2 passed in 0.08s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_add_grade(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert student.grades["Math"] == 90.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_initialization(self):</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-unchanged">          Empty test case, just for setup.</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+     def test_change_major(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.change_major("Biology")</span>
+<span class="diff-added">+         assert student.major == "Biology"</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">      def test_add_grade(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          student.add_grade("Math", 90.0)</span>
+<span class="diff-unchanged">          assert student.grades["Math"] == 90.0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 3 items
+
+test_student.py ...                                                      [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name              Stmts   Miss  Cover
+-------------------------------------
+student.py           17      4    76%
+test_student.py      13      0   100%
+-------------------------------------
+TOTAL                30      4    87%
+Coverage XML written to file coverage.xml
+
+
+============================== 3 passed in 0.08s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_change_major(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.change_major("Biology")
+    assert student.major == "Biology"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_initialization(self):</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-unchanged">          Empty test case, just for setup.</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_get_gpa_no_grades(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         assert student.get_gpa() == 0.0</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">      def test_change_major(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          student.change_major("Biology")</span>
+<span class="diff-unchanged">          assert student.major == "Biology"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">      def test_add_grade(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          student.add_grade("Math", 90.0)</span>
+<span class="diff-unchanged">          assert student.grades["Math"] == 90.0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 4 items
+
+test_student.py ....                                                     [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name              Stmts   Miss  Cover
+-------------------------------------
+student.py           17      2    88%
+test_student.py      16      0   100%
+-------------------------------------
+TOTAL                33      2    94%
+Coverage XML written to file coverage.xml
+
+
+============================== 4 passed in 0.08s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_get_gpa_no_grades(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    assert student.get_gpa() == 0.0
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from student import Student</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  class TestStudent:</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      def test_initialization(self):</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-unchanged">          Empty test case, just for setup.</span>
+<span class="diff-unchanged">          """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+     def test_string_representation(self):</span>
+<span class="diff-added">+         student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-added">+         student.add_grade("Math", 90.0)</span>
+<span class="diff-added">+         assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 90.00"</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">      def test_get_gpa_no_grades(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          assert student.get_gpa() == 0.0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">      def test_change_major(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          student.change_major("Biology")</span>
+<span class="diff-unchanged">          assert student.major == "Biology"</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">      def test_add_grade(self):</span>
+<span class="diff-unchanged">          student = Student(1, "Alice", 20, "Computer Science")</span>
+<span class="diff-unchanged">          student.add_grade("Math", 90.0)</span>
+<span class="diff-unchanged">          assert student.grades["Math"] == 90.0</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">          pass</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\student
+plugins: anyio-4.6.2, cov-6.0.0
+collected 5 items
+
+test_student.py .....                                                    [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name              Stmts   Miss  Cover
+-------------------------------------
+student.py           17      0   100%
+test_student.py      20      0   100%
+-------------------------------------
+TOTAL                37      0   100%
+Coverage XML written to file coverage.xml
+
+
+============================== 5 passed in 0.10s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_string_representation(self):
+    student = Student(1, "Alice", 20, "Computer Science")
+    student.add_grade("Math", 90.0)
+    assert str(student) == "Student Alice (ID: 1), Age: 20, Major: Computer Science, GPA: 90.00"
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    </body>
+    </html>
+    

@@ -1,0 +1,1022 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Results</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 20px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            }
+            th, td {
+                border: 1px solid #ddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .status-pass {
+                color: green;
+            }
+            .status-fail {
+                color: red;
+            }
+            pre {
+                background-color: #282c34 !important;
+                color: #ffffff !important;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 1.1em;  /* Slightly larger font size */
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Exit Code</th>
+                <th>Language</th>
+                <th>Modified Test File</th>
+                <th>Details</th>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_compare_string_one_char_diff():</span>
+<span class="diff-added">+     assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 2 items
+
+test_quine_mc_cluskey.py ..                                              [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     78    20%
+test_quine_mc_cluskey.py       5      0   100%
+----------------------------------------------
+TOTAL                        103     78    24%
+Coverage XML written to file coverage.xml
+
+
+============================== 2 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_compare_string_one_char_diff():
+    assert compare_string('0010', '0110') == '0_10'
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_check_binary_strings():</span>
+<span class="diff-added">+     assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 3 items
+
+test_quine_mc_cluskey.py ...                                             [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     67    32%
+test_quine_mc_cluskey.py       7      0   100%
+----------------------------------------------
+TOTAL                        105     67    36%
+Coverage XML written to file coverage.xml
+
+
+============================== 3 passed in 0.10s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_check_binary_strings():
+    assert check(['0.00.01.5']) == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-added">+ def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-added">+     assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 4 items
+
+test_quine_mc_cluskey.py ....                                            [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     59    40%
+test_quine_mc_cluskey.py       9      0   100%
+----------------------------------------------
+TOTAL                        107     59    45%
+Coverage XML written to file coverage.xml
+
+
+============================== 4 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_decimal_to_binary_single_minterm():
+    assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_is_for_table_strings_count():</span>
+<span class="diff-added">+     assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-added">+     assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 5 items
+
+test_quine_mc_cluskey.py .....                                           [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     55    44%
+test_quine_mc_cluskey.py      12      0   100%
+----------------------------------------------
+TOTAL                        110     55    50%
+Coverage XML written to file coverage.xml
+
+
+============================== 5 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_is_for_table_strings_count():
+    assert is_for_table('__1', '011', 2) == True
+    assert is_for_table('01_', '001', 1) == False
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_main_single_minterm():</span>
+<span class="diff-added">+     no_of_variable = 3</span>
+<span class="diff-added">+     minterms = [1.5]</span>
+<span class="diff-added">+     binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     prime_implicants = check(binary)</span>
+<span class="diff-added">+     chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 6 items
+
+test_quine_mc_cluskey.py ......                                          [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     28    71%
+test_quine_mc_cluskey.py      20      0   100%
+----------------------------------------------
+TOTAL                        118     28    76%
+Coverage XML written to file coverage.xml
+
+
+============================== 6 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_main_single_minterm():
+    no_of_variable = 3
+    minterms = [1.5]
+    binary = decimal_to_binary(no_of_variable, minterms)
+    
+    prime_implicants = check(binary)
+    chart = prime_implicant_chart(prime_implicants, binary)
+    
+    essential_prime_implicants = selection(chart, prime_implicants)
+    
+    assert essential_prime_implicants == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_selection_specific_chart():</span>
+<span class="diff-added">+     chart = [[1]]</span>
+<span class="diff-added">+     prime_implicants = ['0.00.01.5']</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 7 items
+
+test_quine_mc_cluskey.py .......                                         [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     28    71%
+test_quine_mc_cluskey.py      25      0   100%
+----------------------------------------------
+TOTAL                        123     28    77%
+Coverage XML written to file coverage.xml
+
+
+============================== 7 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_selection_specific_chart():
+    chart = [[1]]
+    prime_implicants = ['0.00.01.5']
+    
+    essential_prime_implicants = selection(chart, prime_implicants)
+    
+    assert essential_prime_implicants == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_compare_string_more_than_one_char_diff():</span>
+<span class="diff-added">+     assert compare_string('0110', '1101') == False</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_selection_specific_chart():</span>
+<span class="diff-unchanged">      chart = [[1]]</span>
+<span class="diff-unchanged">      prime_implicants = ['0.00.01.5']</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 8 items
+
+test_quine_mc_cluskey.py ........                                        [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     27    72%
+test_quine_mc_cluskey.py      27      0   100%
+----------------------------------------------
+TOTAL                        125     27    78%
+Coverage XML written to file coverage.xml
+
+
+============================== 8 passed in 0.11s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_compare_string_more_than_one_char_diff():
+    assert compare_string('0110', '1101') == False
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>1</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-added">+ from _pytest.monkeypatch import monkeypatch</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_main_user_input():</span>
+<span class="diff-added">+     with monkeypatch.context() as m:</span>
+<span class="diff-added">+         m.setattr('builtins.input', lambda _: '3')</span>
+<span class="diff-added">+         m.setattr('builtins.input', lambda _: '1.5')</span>
+<span class="diff-added">+         </span>
+<span class="diff-added">+         main_output = main()</span>
+<span class="diff-added">+         </span>
+<span class="diff-added">+         assert main_output == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_more_than_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0110', '1101') == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_selection_specific_chart():</span>
+<span class="diff-unchanged">      chart = [[1]]</span>
+<span class="diff-unchanged">      prime_implicants = ['0.00.01.5']</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 9 items
+
+test_quine_mc_cluskey.py .F.......                                       [100%]
+
+================================== FAILURES ===================================
+____________________________ test_main_user_input _____________________________
+
+    def test_main_user_input():
+>       with monkeypatch.context() as m:
+E       AttributeError: 'function' object has no attribute 'context'
+
+test_quine_mc_cluskey.py:11: AttributeError
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     27    72%
+test_quine_mc_cluskey.py      34      4    88%
+----------------------------------------------
+TOTAL                        132     31    77%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+FAILED test_quine_mc_cluskey.py::test_main_user_input - AttributeError: 'func...
+========================= 1 failed, 8 passed in 0.13s =========================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_main_user_input():
+    with monkeypatch.context() as m:
+        m.setattr('builtins.input', lambda _: '3')
+        m.setattr('builtins.input', lambda _: '1.5')
+        
+        main_output = main()
+        
+        assert main_output == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"from _pytest.monkeypatch import monkeypatch"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-PASS">PASS</td>
+                <td></td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_compare_string_one_char_diff():</span>
+<span class="diff-added">+     assert compare_string('0010', '0110') == '0_10'</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_more_than_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0110', '1101') == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_selection_specific_chart():</span>
+<span class="diff-unchanged">      chart = [[1]]</span>
+<span class="diff-unchanged">      prime_implicants = ['0.00.01.5']</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 8 items
+
+test_quine_mc_cluskey.py ........                                        [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     27    72%
+test_quine_mc_cluskey.py      29      1    97%
+----------------------------------------------
+TOTAL                        127     28    78%
+Coverage XML written to file coverage.xml
+
+
+============================== 8 passed in 0.13s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_compare_string_one_char_diff():
+    assert compare_string('0010', '0110') == '0_10'
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Coverage did not increase. Maybe the test did run but did not increase coverage, or maybe the test execution was skipped due to some problem</td>
+                <td>0</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_selection_specific_chart():</span>
+<span class="diff-added">+     chart = [[1]]</span>
+<span class="diff-added">+     prime_implicants = ['0.00.01.5']</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-added">+     </span>
+<span class="diff-added">+     assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_more_than_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0110', '1101') == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_selection_specific_chart():</span>
+<span class="diff-unchanged">      chart = [[1]]</span>
+<span class="diff-unchanged">      prime_implicants = ['0.00.01.5']</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 8 items
+
+test_quine_mc_cluskey.py ........                                        [100%]
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     27    72%
+test_quine_mc_cluskey.py      34      5    85%
+----------------------------------------------
+TOTAL                        132     32    76%
+Coverage XML written to file coverage.xml
+
+
+============================== 8 passed in 0.13s ==============================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_selection_specific_chart():
+    chart = [[1]]
+    prime_implicants = ['0.00.01.5']
+    
+    essential_prime_implicants = selection(chart, prime_implicants)
+    
+    assert essential_prime_implicants == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">""
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="status-FAIL">FAIL</td>
+                <td>Test failed</td>
+                <td>1</td>
+                <td>python</td>
+                <td>
+                    <details>
+                        <summary>View Full Code</summary>
+                        <pre><code><span class="diff-unchanged">  from quine_mc_cluskey import *</span>
+<span class="diff-unchanged">  import pytest</span>
+<span class="diff-added">+ from _pytest.monkeypatch import monkeypatch</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_initialization():</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-unchanged">      Empty test case, just for setup.</span>
+<span class="diff-unchanged">      """</span>
+<span class="diff-added">+ </span>
+<span class="diff-added">+ def test_main_user_input():</span>
+<span class="diff-added">+     with monkeypatch.context() as m:</span>
+<span class="diff-added">+         m.setattr('builtins.input', lambda _: '3')</span>
+<span class="diff-added">+         m.setattr('builtins.input', lambda _: '1.5')</span>
+<span class="diff-added">+         </span>
+<span class="diff-added">+         main_output = main()</span>
+<span class="diff-added">+         </span>
+<span class="diff-added">+         assert main_output == ['0.00.01.5']</span>
+<span class="diff-added">+ </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_more_than_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0110', '1101') == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_selection_specific_chart():</span>
+<span class="diff-unchanged">      chart = [[1]]</span>
+<span class="diff-unchanged">      prime_implicants = ['0.00.01.5']</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_main_single_minterm():</span>
+<span class="diff-unchanged">      no_of_variable = 3</span>
+<span class="diff-unchanged">      minterms = [1.5]</span>
+<span class="diff-unchanged">      binary = decimal_to_binary(no_of_variable, minterms)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      prime_implicants = check(binary)</span>
+<span class="diff-unchanged">      chart = prime_implicant_chart(prime_implicants, binary)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      essential_prime_implicants = selection(chart, prime_implicants)</span>
+<span class="diff-unchanged">      </span>
+<span class="diff-unchanged">      assert essential_prime_implicants == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_is_for_table_strings_count():</span>
+<span class="diff-unchanged">      assert is_for_table('__1', '011', 2) == True</span>
+<span class="diff-unchanged">      assert is_for_table('01_', '001', 1) == False</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_decimal_to_binary_single_minterm():</span>
+<span class="diff-unchanged">      assert decimal_to_binary(3, [1.5]) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_check_binary_strings():</span>
+<span class="diff-unchanged">      assert check(['0.00.01.5']) == ['0.00.01.5']</span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  </span>
+<span class="diff-unchanged">  def test_compare_string_one_char_diff():</span>
+<span class="diff-unchanged">      assert compare_string('0010', '0110') == '0_10'</span></code></pre>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary>View More</summary>
+                        <div><strong>STDERR:</strong> <pre><code class="language-python"></code></pre></div>
+                        <div><strong>STDOUT:</strong> <pre><code class="language-python">============================= test session starts =============================
+platform win32 -- Python 3.10.16, pytest-7.4.4, pluggy-1.5.0
+rootdir: C:\Users\kevin\Desktop\qodo-cover\quine_mc_cluskey
+plugins: anyio-4.6.2, cov-6.0.0
+collected 9 items
+
+test_quine_mc_cluskey.py .F.......                                       [100%]
+
+================================== FAILURES ===================================
+____________________________ test_main_user_input _____________________________
+
+    def test_main_user_input():
+>       with monkeypatch.context() as m:
+E       AttributeError: 'function' object has no attribute 'context'
+
+test_quine_mc_cluskey.py:11: AttributeError
+
+---------- coverage: platform win32, python 3.10.16-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+quine_mc_cluskey.py           98     27    72%
+test_quine_mc_cluskey.py      36      5    86%
+----------------------------------------------
+TOTAL                        134     32    76%
+Coverage XML written to file coverage.xml
+
+=========================== short test summary info ===========================
+FAILED test_quine_mc_cluskey.py::test_main_user_input - AttributeError: 'func...
+========================= 1 failed, 8 passed in 0.13s =========================
+</code></pre></div>
+                        <div><strong>Test Code:</strong> <pre><code class="language-python">def test_main_user_input():
+    with monkeypatch.context() as m:
+        m.setattr('builtins.input', lambda _: '3')
+        m.setattr('builtins.input', lambda _: '1.5')
+        
+        main_output = main()
+        
+        assert main_output == ['0.00.01.5']
+</code></pre></div>
+                        <div><strong>Imports:</strong> <pre><code class="language-python">"from _pytest.monkeypatch import monkeypatch"
+</code></pre></div>
+                    </details>
+                </td>
+            </tr>
+            
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    </body>
+    </html>
+    
